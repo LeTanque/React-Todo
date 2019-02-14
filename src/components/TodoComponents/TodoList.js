@@ -14,7 +14,7 @@ import Todo from './Todo';
 
 const TodoList = props => {
     return (
-      <div>
+        <React.Fragment>
             {props.todos.map(todo => (
                 <Todo
                     handleToggleComplete={props.handleToggleComplete}
@@ -22,7 +22,7 @@ const TodoList = props => {
                     todo={todo}
                 />
             ))}
-        </div>
+        </React.Fragment>
     );
 };
 
@@ -31,3 +31,8 @@ export default TodoList;
 
 
 
+// <div className='todo-list-container'>
+// {this.state.todoArrObject.map(taskFromMap => (
+//   <TodoList key={taskFromMap.task} currentTasks={taskFromMap} />
+// ))}
+// </div> 

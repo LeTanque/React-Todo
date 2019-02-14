@@ -18,6 +18,7 @@ const todoArr = [
 ];
 
 
+
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
@@ -71,12 +72,16 @@ class App extends React.Component {
           task={this.state.task}
         />
         <br />
-
-        <TodoList
-          // handleToggleComplete={this.toggleTodoComplete}
-          todos={this.state.todoArrObject}
-        />
-  
+        
+        <ul className="todo-list-container">
+          
+            <TodoList
+              // handleToggleComplete={this.toggleTodoComplete}
+              todos={this.state.todoArrObject}
+            />
+      
+          
+        </ul>
         
       </div>
     );
@@ -84,11 +89,6 @@ class App extends React.Component {
 }
 
 
-{/* <div className='todo-list-container'>
-{this.state.todoArrObject.map(taskFromMap => (
-  <TodoList key={taskFromMap.task} currentTasks={taskFromMap} />
-))}
-</div> */}
 
 export default App;
 
