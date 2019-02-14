@@ -1,20 +1,20 @@
 import React from 'react';
-import Todo from './components/TodoComponents/Todo';
+// import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 
 
 const todoArr = [
-    {
-      task: 'Organize Garage',
-      id: 1528817077286,
-      completed: false
-    },
-    {
-      task: 'Bake Cookies',
-      id: 1528817084358,
-      completed: false
-    }
+  {
+    task: 'Organize Garage',
+    id: 1528817077286,
+    completed: false
+  },
+  {
+    task: 'Bake Cookies',
+    id: 1528817084358,
+    completed: false
+  }
 ];
 
 
@@ -47,7 +47,7 @@ class App extends React.Component {
     this.setState({
       todoArrObject: [...this.state.todoArrObject, newTodo],
       task: "",
-      id: "",
+      id: Date.now(),
       completed: ""
     });
   };
@@ -60,7 +60,6 @@ class App extends React.Component {
     });
   };
 
-
   render() {
     return (
       <div className="todo-app">
@@ -72,14 +71,25 @@ class App extends React.Component {
           task={this.state.task}
         />
         <br />
-        <div className='todo-list-container'>
-          {this.state.todoArrObject.map(taskFromMap => (
-            <TodoList key={taskFromMap.task} currentTasks={taskFromMap} />
-          ))}
-        </div>
+
+        <TodoList
+          // handleToggleComplete={this.toggleTodoComplete}
+          todos={this.state.todoArrObject}
+        />
+  
+        
       </div>
     );
   }
 }
 
+
+{/* <div className='todo-list-container'>
+{this.state.todoArrObject.map(taskFromMap => (
+  <TodoList key={taskFromMap.task} currentTasks={taskFromMap} />
+))}
+</div> */}
+
 export default App;
+
+
