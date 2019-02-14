@@ -16,7 +16,7 @@ body .todo-app h5 {
 }
 body .todo-app .todo-list-container {
   width: 50%;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto;
   text-align: left;
 }

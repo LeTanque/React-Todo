@@ -71,18 +71,16 @@ class App extends React.Component {
           handleChanges={this.handleChanges}
           task={this.state.task}
         />
+
         <br />
         
         <ul className="todo-list-container">
-          
             <TodoList
               // handleToggleComplete={this.toggleTodoComplete}
               todos={this.state.todoArrObject}
             />
-      
-          
         </ul>
-        
+
       </div>
     );
   }
