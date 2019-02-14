@@ -2,14 +2,13 @@ import React from 'react';
 import Todo from './Todo';
 
 const TodoList = props => {
+    const sortedList = props.todoArr.sort((a, b) => a.purchased - b.purchased);
     return (
-        <React.Fragment>
-            {props.todos.map(todo => (
-                <Todo
-                 
-                />
+        <div className="shopping-list">
+            {sortedList.map(task => (
+                <Todo key={task.id} task={task} toggleTask={props.toggleTask} />
             ))}
-        </React.Fragment>
+        </div>
     );
 };
 

@@ -5,19 +5,33 @@ class TodoForm extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            item: ''
-        }
+            task: ''
+        };
     }
+
+
+    handleChanges = synthEvent => {
+        this.setState({ [synthEvent.target.name]: synthEvent.target.value });
+    };
+    
+    submitTask = event => {
+        this.setState({ task: "" });
+        this.props.addTask(event, this.state.task);
+    };
+
 
     render() {
         return (  
             <React.Fragment>
-                <form onSubmit={this.submitItem}>
+                <form onSubmit={this.submitTask}>
                     <input
+                        type="text"
+                        name="task"
+                        value={this.state.task}
+                        onChange={this.handleChanges}
                     />
                     <div className='button-container'>
-                        <button type="submit">Add Task</button>
-                        <button type="submit" className="btn-gray">Clear Completed</button>
+                        <button>Add Task</button>
                     </div>
                 </form>
             </React.Fragment>
