@@ -5,8 +5,9 @@ const Todo = props => {
     return (
         <li>
             <div
-                style={props.todo.completed ? { textDecoration: 'line-through' } : null}
-                // onClick={() => props.handleToggleComplete(props.todo.id)}
+                className={`item ${props.todo.completed ? "purchased" : ""}`}
+                // style={props.todo.completed ? { textDecoration: 'line-through' } : null}
+                onClick={() => props.handleToggleComplete(props.todo.id)}
             >
                 {props.todo.task}
             </div>

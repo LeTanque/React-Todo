@@ -26,40 +26,55 @@ class App extends React.Component {
   constructor(){
     super();
     this.state = {
-      todoArrObject: todoArr,
-      task: "",
-      id: "",
-      completed: ""
+      todoArr
     };
   }
 
-  addTodo = event => {
-    event.preventDefault();
+  addTodo = (event, item) => {
     // console.log(event.target);
     // setStudent with new student at the end of the array
     // .push() makes us happy, because it works, but react doesn't like it. .concat is an option that works
     // React disallows push because it will mutate the array and could end with side effects.
-    const newTodo = {
-      task: this.state.task,
-      id: this.state.id,
-      completed: this.state.completed
-    };
     // Pretty much everyone uses the spread operator now, though. (...)
-    this.setState({
-      todoArrObject: [...this.state.todoArrObject, newTodo],
-      task: "",
+    event.preventDefault();
+    const newTodo = {
+      task: item,
       id: Date.now(),
-      completed: ""
+      completed: false
+    };
+    this.setState({
+      todoArr: [...this.state.todoArr, newTodo],
+      // task: "",
+      // id: Date.now(),
+      // completed: ""
     });
   };
 
-  handleChanges = event => {
-    // console.log(event.target.value);
-    //     this.setState({ name: e.target.value })  // Non dynamic way to set state of particular field
+  // handleChanges = event => {
+  //   //     this.setState({ name: e.target.value })  // Non dynamic way to set state of particular field
+  //   this.setState({
+  //     [event.target.name]: event.target.value
+  //   });
+  // };
+
+  toggleTask = taskId => {
     this.setState({
-      [event.target.name]: event.target.value
+      todoArr: this.state.todoArr.map(task => {
+        if (taskId === task.id) {
+          return { ...task, completed: !task.completed };
+        }
+        return task;
+      })
     });
   };
+
+  clearPurchased = event => {
+    event.preventDefault;
+    this.setState({
+      todoArr: this.state.todoArr.filter(task => !task.purchased)
+    });
+  };
+
 
   render() {
     return (
@@ -68,7 +83,7 @@ class App extends React.Component {
         <br />
         <TodoForm
           addTodo={this.addTodo}
-          handleChanges={this.handleChanges}
+          // handleChanges={this.handleChanges}
           task={this.state.task}
         />
 

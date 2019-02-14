@@ -20,6 +20,12 @@ body .todo-app .todo-list-container {
   margin: 0 auto;
   text-align: left;
 }
+body .todo-app .button-container {
+  display: flex;
+}
+body .todo-app .button-container button {
+  margin: 5px 10px 10px 10px;
+}
 form {
   display: flex;
   z-index: 10;
@@ -69,6 +75,9 @@ button {
   outline: none;
   cursor: pointer;
   transition: box-shadow 0.2s;
+}
+.btn-gray {
+  background-color: rgba(199, 199, 199);
 }
 button::-moz-focus-inner {
   border: none;
