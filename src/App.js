@@ -51,6 +51,7 @@ class App extends React.Component {
     return (
       <div className="todo-app">
         <h1>TododoT</h1>
+        <p>version 3</p>
         <br />
         <TodoForm
           addTask={this.addTask}
