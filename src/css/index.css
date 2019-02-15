@@ -16,9 +16,24 @@ body .todo-app h5 {
 }
 body .todo-app .todo-list-container {
   width: 50%;
-  max-width: 600px;
+  max-width: 300px;
   margin: 0 auto;
   text-align: left;
+}
+body .todo-app .button-container {
+  display: flex;
+}
+body .todo-app .button-container button {
+  margin: 5px 10px 10px 10px;
+}
+.task.completed {
+  color: #555555;
+  background-color: #dddddd;
+  text-decoration: line-through;
+}
+.btn-gray {
+  background-color: #aaaaaa;
+  color: #333333;
 }
 form {
   display: flex;
@@ -69,6 +84,9 @@ button {
   outline: none;
   cursor: pointer;
   transition: box-shadow 0.2s;
+}
+.btn-gray {
+  background-color: rgba(199, 199, 199);
 }
 button::-moz-focus-inner {
   border: none;
